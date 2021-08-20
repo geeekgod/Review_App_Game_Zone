@@ -10,7 +10,6 @@ const HomeNavigator = () => (
   <Navigator
     initialRouteName="Home"
     screenOptions={{
-      headerTitle: () => <Header/>,
       headerStyle: {
         backgroundColor: "#eee",
       },
@@ -19,6 +18,10 @@ const HomeNavigator = () => (
     }}
   >
     <Screen
+      options={{
+        headerTitle: () => <Header/>,
+        headerTitleAlign:'center'
+      }}
       name="Home"
       component={Home}
     />
