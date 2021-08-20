@@ -1,36 +1,31 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import Home from "../screens/Home";
-import ReviewDetails from "../screens/ReviewDetails";
+import About from "../screens/About";
 import Header from '../shared/Header'
 
 const { Navigator, Screen } = createStackNavigator();
 
-const HomeNavigator = () => (
+const Aboutnavigator = () => (
   <Navigator
-    initialRouteName="Home"
+    initialRouteName="About"
     screenOptions={{
+      title: "About Game Zone",
       headerTitle: () => <Header/>,
       headerStyle: {
         backgroundColor: "#eee",
       },
       headerTintColor: "#444",
-      headerMode:'screen',
     }}
   >
     <Screen
-      name="Home"
-      component={Home}
-    />
-    <Screen
-      name="Details"
-      component={ReviewDetails}
+      name="About"
+      component={About}
     />
   </Navigator>
 );
 
-export const HomeStack = () => (
-    <HomeNavigator />
+export const AboutStack = () => (
+    <Aboutnavigator />
 );
 
-export default HomeStack;
+export default AboutStack;
