@@ -10,7 +10,6 @@ const Aboutnavigator = () => (
     initialRouteName="About"
     screenOptions={{
       title: "About Game Zone",
-      headerTitle: () => <Header/>,
       headerStyle: {
         backgroundColor: "#eee",
       },
@@ -19,6 +18,10 @@ const Aboutnavigator = () => (
   >
     <Screen
       name="About"
+      options={{
+        headerTitle: () => <Header/>,
+        headerTitleAlign:'center'
+      }}
       component={About}
     />
   </Navigator>

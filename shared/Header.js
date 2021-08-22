@@ -1,12 +1,12 @@
 import React from "react";
-
 import { MaterialIcons } from "@expo/vector-icons";
 import { View, Text, StyleSheet, Dimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 const Header = () => {
+  const navigation = useNavigation();
   const onMenuClick = () => {
-    useNavigation();
+      navigation.openDrawer();
   };
   return (
     <View style={styles.header}>
@@ -24,26 +24,24 @@ const Header = () => {
 };
 
 const styles = StyleSheet.create({
-  icon: {
-      marginLeft:0,
-      marginRight:'auto',
-  },
   header: {
-    width: "100%",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
+    flex:1,
+    width: '100%',
+    height: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   headerText: {
-    fontWeight: "bold",
-    marginLeft:'auto',
-    marginRight:'auto',
-    textAlign:'center',
+    fontWeight: 'bold',
     fontSize: 20,
-    color: "#333",
+    color: '#333',
     letterSpacing: 1,
-    marginHorizontal: "auto",
   },
+  icon: {
+    position: 'absolute',
+    left: -60,
+  }
 });
 
 export default Header;
