@@ -1,9 +1,9 @@
 import React from "react";
 import { MaterialIcons } from "@expo/vector-icons";
-import { View, Text, StyleSheet, Dimensions } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-const Header = () => {
+const Header = (props) => {
   const navigation = useNavigation();
   const onMenuClick = () => {
       navigation.openDrawer();
@@ -17,7 +17,7 @@ const Header = () => {
         style={styles.icon}
       />
       <View>
-        <Text style={styles.headerText}>Game Zone</Text>
+        <Text style={styles.headerText}>{props.title}</Text>
       </View>
     </View>
   );
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   },
   icon: {
     position: 'absolute',
-    left: -60,
+    left: -50,
   }
 });
 

@@ -19,7 +19,7 @@ const Aboutnavigator = () => (
     <Screen
       name="About"
       options={{
-        headerTitle: () => <Header/>,
+        headerTitle: () => <Header title={"About GameZone"}/>,
         headerTitleAlign:'center'
       }}
       component={About}

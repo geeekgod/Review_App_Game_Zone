@@ -19,7 +19,7 @@ const HomeNavigator = () => (
   >
     <Screen
       options={{
-        headerTitle: () => <Header/>,
+        headerTitle: () => <Header title={"Game Zone"}/>,
         headerTitleAlign:'center'
       }}
       name="Home"
