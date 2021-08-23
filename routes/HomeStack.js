@@ -1,5 +1,5 @@
 import React from "react";
-import {Image} from 'react-native'
+import {Image} from 'react-native';
 import { createStackNavigator } from "@react-navigation/stack";
 import Home from "../screens/Home";
 import ReviewDetails from "../screens/ReviewDetails";

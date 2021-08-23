@@ -1,10 +1,19 @@
 import React from "react";
-import { StyleSheet, View, Text, Button, FlatList, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  Button,
+  FlatList,
+  TouchableOpacity,
+  Modal,
+} from "react-native";
 import { useState } from "react/cjs/react.development";
 import Card from "../shared/Card";
-import {globalStyles} from "../styles/Global";
+import { globalStyles } from "../styles/Global";
+import { MaterialIcons } from "@expo/vector-icons";
 
-const Home = ({navigation}) => {
+const Home = ({ navigation }) => {
   const [reviews, setReviews] = useState([
     {
       title: "Zelda, Breath of Fresh Air",
@@ -25,19 +34,61 @@ const Home = ({navigation}) => {
       key: "3",
     },
   ]);
+
+  const [modalOpen, setModalOpen] = useState(false);
   return (
     <View style={globalStyles.container}>
-        <FlatList
+      <Modal visible={modalOpen} animationType="slide">
+        <View style={styles.modalContent}>
+          <MaterialIcons
+            name="close"
+            size={24}
+            onPress={() => setModalOpen(false)}
+            style={{ ...styles.modalToggle, ...styles.modalClose }}
+          />
+          <Text>Hello world</Text>
+        </View>
+      </Modal>
+
+      <MaterialIcons
+        style={styles.modalToggle}
+        name="add"
+        size={24}
+        onPress={() => setModalOpen(true)}
+      />
+
+      <FlatList
         data={reviews}
-        renderItem={({item}) =>
-        (
-         <TouchableOpacity onPress={() => navigation.navigate('Details', item)}>
-             <Card><Text style={globalStyles.title}>{item.title}</Text></Card>
-         </TouchableOpacity>   
+        renderItem={({ item }) => (
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Details", item)}
+          >
+            <Card>
+              <Text style={globalStyles.title}>{item.title}</Text>
+            </Card>
+          </TouchableOpacity>
         )}
-        />
+      />
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  modalToggle: {
+    marginBottom: 10,
+    borderWidth: 1,
+    borderColor: "#f2f2f2",
+    padding: 10,
+    borderRadius: 10,
+    alignSelf: "center",
+  },
+  modalClose: {
+    marginTop: 30,
+    marginBottom: 0,
+  },
+  modalContent: {
+    flex: 1,
+  },
+});
 
 export default Home;
