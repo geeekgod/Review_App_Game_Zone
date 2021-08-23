@@ -1,12 +1,12 @@
 import React from "react";
 import { MaterialIcons } from "@expo/vector-icons";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 const Header = (props) => {
   const navigation = useNavigation();
   const onMenuClick = () => {
-      navigation.openDrawer();
+    navigation.openDrawer();
   };
   return (
     <View style={styles.header}>
@@ -16,7 +16,11 @@ const Header = (props) => {
         onPress={onMenuClick}
         style={styles.icon}
       />
-      <View>
+      <View style={styles.headerTitle}>
+        <Image
+          style={styles.headerImage}
+          source={require("../assets/heart_logo.png")}
+        />
         <Text style={styles.headerText}>{props.title}</Text>
       </View>
     </View>
@@ -25,23 +29,31 @@ const Header = (props) => {
 
 const styles = StyleSheet.create({
   header: {
-    flex:1,
-    width: '100%',
-    height: '100%',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flex: 1,
+    width: "100%",
+    height: "100%",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
   },
   headerText: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
     fontSize: 20,
-    color: '#333',
+    color: "#333",
     letterSpacing: 1,
   },
   icon: {
-    position: 'absolute',
+    position: "absolute",
     left: -50,
-  }
+  },
+  headerImage: {
+    width: 26,
+    height: 26,
+    marginHorizontal: 10,
+  },
+  headerTitle: {
+    flexDirection: "row",
+  },
 });
 
 export default Header;

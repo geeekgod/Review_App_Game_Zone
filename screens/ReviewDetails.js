@@ -12,7 +12,7 @@ const ReviewDetails = ({ route, navigation }) => {
         <Text style={globalStyles.titleText}>{title}</Text>
         <Text>{body}</Text>
         <View style={styles.rating}>
-          <Text>Game Zone rating:</Text>
+          <Text>Game Zone rating: </Text>
           <Image source={images.ratings[rating]} />
         </View>
       </Card>
