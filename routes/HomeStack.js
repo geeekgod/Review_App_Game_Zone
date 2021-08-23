@@ -1,4 +1,5 @@
 import React from "react";
+import {Image} from 'react-native'
 import { createStackNavigator } from "@react-navigation/stack";
 import Home from "../screens/Home";
 import ReviewDetails from "../screens/ReviewDetails";
@@ -20,6 +21,7 @@ const HomeNavigator = () => (
     <Screen
       options={{
         headerTitle: () => <Header title={"Game Zone"}/>,
+        headerBackground: ()=> <Image source={require("../assets/game_bg.png")} style={{height:"100%"}}/>,
         headerTitleAlign:'center'
       }}
       name="Home"

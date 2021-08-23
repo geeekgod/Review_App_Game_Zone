@@ -1,4 +1,5 @@
 import React from "react";
+import {Image} from 'react-native';
 import { createStackNavigator } from "@react-navigation/stack";
 import About from "../screens/About";
 import Header from '../shared/Header';
@@ -20,6 +21,7 @@ const Aboutnavigator = () => (
       name="About"
       options={{
         headerTitle: () => <Header title={"About GameZone"}/>,
+        headerBackground: ()=> <Image source={require("../assets/game_bg.png")} style={{height:"100%"}}/>,
         headerTitleAlign:'center'
       }}
       component={About}
