@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, View, Text, Image } from "react-native";
 import Card from "../shared/Card";
-import {globalStyles, images} from "../styles/Global";
+import { globalStyles, images } from "../styles/Global";
 
 const ReviewDetails = ({ route, navigation }) => {
   const { title, body, rating } = route.params;
@@ -13,7 +13,7 @@ const ReviewDetails = ({ route, navigation }) => {
         <Text>{body}</Text>
         <View style={styles.rating}>
           <Text>Game Zone rating:</Text>
-          <Image source={images.ratings[rating]}/>
+          <Image source={images.ratings[rating]} />
         </View>
       </Card>
     </View>
@@ -21,7 +21,14 @@ const ReviewDetails = ({ route, navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  rating: {},
+  rating: {
+    flexDirection: "row",
+    justifyContent: "center",
+    paddingTop: 16,
+    marginTop: 16,
+    borderTopWidth: 1,
+    borderTopColor: "#eee",
+  },
 });
 
 export default ReviewDetails;
