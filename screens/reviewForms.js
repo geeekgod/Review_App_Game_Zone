@@ -2,6 +2,21 @@ import React from "react";
 import { StyleSheet, Button, TextInput, View, Text } from "react-native";
 import { globalStyles } from "../styles/Global";
 import { Formik } from "formik";
+import yup from 'yup';
+
+const  ReviewSchema = yup.object({
+    title: yup.string()
+    .required()
+    .min(8),
+    body: yup.string()
+    .required()
+    .min(15),
+    rating : yup.string()
+    .required()
+    .test('is-num-1-5', 'Rating must be a number from 1 to 5', (val) =>{
+        return parseInt(val) < 6 && parseInt(val) > 0;
+    })
+})
 
 const ReviewForm = ({addReview}) => {
   return (
