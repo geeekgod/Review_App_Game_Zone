@@ -3,10 +3,11 @@ import {
   StyleSheet,
   View,
   Text,
-  Button,
+  Keyboard,
   FlatList,
   TouchableOpacity,
   Modal,
+  TouchableWithoutFeedback,
 } from "react-native";
 import { useState } from "react/cjs/react.development";
 import Card from "../shared/Card";
@@ -36,19 +37,29 @@ const Home = ({ navigation }) => {
     },
   ]);
 
+  const addReview = (review) => {
+    review.key = Math.random().toString();
+    setReviews((currentReviews) => {
+      return [review, ...currentReviews];
+    });
+    setModalOpen(false);
+  };
+
   const [modalOpen, setModalOpen] = useState(false);
   return (
     <View style={globalStyles.container}>
       <Modal visible={modalOpen} animationType="slide">
-        <View style={styles.modalContent}>
-          <MaterialIcons
-            name="close"
-            size={24}
-            onPress={() => setModalOpen(false)}
-            style={{ ...styles.modalToggle, ...styles.modalClose }}
-          />
-          <ReviewForm/>
-        </View>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <View style={styles.modalContent}>
+            <MaterialIcons
+              name="close"
+              size={24}
+              onPress={() => setModalOpen(false)}
+              style={{ ...styles.modalToggle, ...styles.modalClose }}
+            />
+            <ReviewForm addReview={addReview} />
+          </View>
+        </TouchableWithoutFeedback>
       </Modal>
 
       <MaterialIcons
