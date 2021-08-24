@@ -50,7 +50,7 @@ const ReviewForm = ({ addReview }) => {
               placeholder="Ratings (1-5)"
               onChangeText={props.handleChange("rating")}
               value={props.values.rating}
-              onBlur={props.handleBlur("body")}
+              onBlur={props.handleBlur("rating")}
               keyboardType="numeric"
             />
             <Text>{props.touched.rating && props.errors.rating}</Text>
