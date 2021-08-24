@@ -12,6 +12,7 @@ import { useState } from "react/cjs/react.development";
 import Card from "../shared/Card";
 import { globalStyles } from "../styles/Global";
 import { MaterialIcons } from "@expo/vector-icons";
+import ReviewForm from "./reviewForms";
 
 const Home = ({ navigation }) => {
   const [reviews, setReviews] = useState([
@@ -46,7 +47,7 @@ const Home = ({ navigation }) => {
             onPress={() => setModalOpen(false)}
             style={{ ...styles.modalToggle, ...styles.modalClose }}
           />
-          <Text>Hello world</Text>
+          <ReviewForm/>
         </View>
       </Modal>
 

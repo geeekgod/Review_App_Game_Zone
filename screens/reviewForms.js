@@ -12,7 +12,7 @@ const ReviewForm = () => {
           body: "",
           rating: "",
         }}
-        onSubmit={(values) => {console.log(values)}}
+        onSubmit={(values) => {console.log(values.body)}}
       >
         {(props) => (
           <View>
@@ -34,6 +34,7 @@ const ReviewForm = () => {
               placeholder="Ratings (1-5)"
               onChange={props.handleChange("rating")}
               value={props.values.rating}
+              keyboardType='numeric'
             />
             <Button title='Submit Reviews' color='maroon' onPress={props.handleSubmit}/>
           </View>
