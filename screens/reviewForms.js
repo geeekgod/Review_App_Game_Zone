@@ -7,36 +7,38 @@ const ReviewForm = () => {
   return (
     <View style={globalStyles.container}>
       <Formik
-        initialValues={{
-          title: "",
-          body: "",
-          rating: "",
+        initialValues={{ title: "", body: "", rating: "" }}
+        onSubmit={(values) => {
+          console.log(values);
         }}
-        onSubmit={(values) => {console.log(values.body)}}
       >
         {(props) => (
           <View>
             <TextInput
               style={globalStyles.input}
               placeholder="Review Title"
-              onChange={props.handleChange("title")}
+              onChangeText={props.handleChange("title")}
               value={props.values.title}
             />
             <TextInput
               style={globalStyles.input}
               placeholder="Review Body"
-              onChange={props.handleChange("body")}
+              onChangeText={props.handleChange("body")}
               value={props.values.body}
               multiline
             />
             <TextInput
               style={globalStyles.input}
               placeholder="Ratings (1-5)"
-              onChange={props.handleChange("rating")}
+              onChangeText={props.handleChange("rating")}
               value={props.values.rating}
-              keyboardType='numeric'
+              keyboardType="numeric"
             />
-            <Button title='Submit Reviews' color='maroon' onPress={props.handleSubmit}/>
+            <Button
+              title="Submit Reviews"
+              color="maroon"
+              onPress={props.handleSubmit}
+            />
           </View>
         )}
       </Formik>
