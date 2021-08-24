@@ -35,7 +35,7 @@ const ReviewForm = ({ addReview }) => {
               value={props.values.title}
               onBlur={props.handleBlur("title")}
             />
-            <Text>{props.touched.title && props.errors.title}</Text>
+            <Text style={globalStyles.errorText}>{props.touched.title && props.errors.title}</Text>
             <TextInput
               style={globalStyles.input}
               placeholder="Review Body"
@@ -44,7 +44,7 @@ const ReviewForm = ({ addReview }) => {
               onBlur={props.handleBlur("body")}
               multiline
             />
-            <Text>{props.touched.body && props.errors.body}</Text>
+            <Text style={globalStyles.errorText}>{props.touched.body && props.errors.body}</Text>
             <TextInput
               style={globalStyles.input}
               placeholder="Ratings (1-5)"
@@ -53,7 +53,7 @@ const ReviewForm = ({ addReview }) => {
               onBlur={props.handleBlur("rating")}
               keyboardType="numeric"
             />
-            <Text>{props.touched.rating && props.errors.rating}</Text>
+            <Text style={globalStyles.errorText}>{props.touched.rating && props.errors.rating}</Text>
             <Button
               title="Submit Reviews"
               color="maroon"
