@@ -2,9 +2,9 @@ import React from "react";
 import { StyleSheet, Button, TextInput, View, Text } from "react-native";
 import { globalStyles } from "../styles/Global";
 import { Formik } from "formik";
-import yup from 'yup';
+import * as yup from 'yup';
 
-const  ReviewSchema = yup.object({
+const  reviewSchema = yup.object({
     title: yup.string()
     .required()
     .min(8),
@@ -23,6 +23,7 @@ const ReviewForm = ({addReview}) => {
     <View style={globalStyles.container}>
       <Formik
         initialValues={{ title: "", body: "", rating: "" }}
+        validationSchema={reviewSchema}
         onSubmit={(values, actions) => {
             actions.resetForm();
             addReview(values);
